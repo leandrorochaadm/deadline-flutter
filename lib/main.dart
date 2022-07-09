@@ -25,8 +25,9 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.grey,
           brightness: Brightness.dark,
           textTheme: const TextTheme(
-            headline1: TextStyle(fontSize: 42, fontWeight: FontWeight.bold),
+            headline1: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
             bodyText1: TextStyle(fontSize: 26),
+            bodyText2: TextStyle(fontSize: 18),
           )),
       home: const HomePage(),
     );
