@@ -1,6 +1,7 @@
-import 'package:deadline/ui/pages/home/home_controler.dart';
 import 'package:deadline/ui/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
+
+import 'ui/pages/year/year.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Dead Line Time',
       debugShowCheckedModeBanner: false,
+      routes: {'/year': (context) => YearPage(controller: YearController())},
       theme: ThemeData(
           primarySwatch: Colors.blue,
           brightness: Brightness.dark,
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
             headline1: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
             bodyText1: TextStyle(fontSize: 26),
           )),
-      home: HomePage(controler: HomeControler()),
+      home: const HomePage(),
     );
   }
 }
