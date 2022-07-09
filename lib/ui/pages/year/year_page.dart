@@ -16,6 +16,10 @@ class YearPage extends StatelessWidget {
           children: [
             Text('DIAS DO ANO', style: Theme.of(context).textTheme.headline1),
             const SizedBox(height: 16),
+            Text(
+              'Data: ${controller.dateToday()}',
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
             const SizedBox(height: 8),
             SizedBox(
               width: 350,
