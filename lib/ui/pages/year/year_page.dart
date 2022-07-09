@@ -14,8 +14,7 @@ class YearPage extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('DEAD LINE TIME',
-                style: Theme.of(context).textTheme.headline6),
+            Text('DIAS DO ANO', style: Theme.of(context).textTheme.headline1),
             const SizedBox(height: 16),
             const SizedBox(height: 8),
             SizedBox(

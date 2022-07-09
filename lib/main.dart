@@ -22,10 +22,10 @@ class MyApp extends StatelessWidget {
         '/life': (context) => LifePage(controller: LifeController()),
       },
       theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.grey,
           brightness: Brightness.dark,
           textTheme: const TextTheme(
-            headline1: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
+            headline1: TextStyle(fontSize: 42, fontWeight: FontWeight.bold),
             bodyText1: TextStyle(fontSize: 26),
           )),
       home: const HomePage(),
