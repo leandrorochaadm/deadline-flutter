@@ -18,6 +18,11 @@ class LifePage extends StatelessWidget {
           children: [
             Text('DIAS DA VIDA', style: Theme.of(context).textTheme.headline1),
             const SizedBox(height: 16),
+            Text(
+              'Data: ${controller.dateEndLifeStr()}',
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
+            const SizedBox(height: 8),
             SizedBox(
               width: 200,
               child: Row(

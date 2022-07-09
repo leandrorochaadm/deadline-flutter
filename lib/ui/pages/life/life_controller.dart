@@ -1,6 +1,12 @@
+import 'package:intl/intl.dart';
+
 class LifeController {
   DateTime dateEndLife = DateTime(2058);
   DateTime dateStartLife = DateTime(1993, 8, 22, 23, 30);
+
+  String dateEndLifeStr() {
+    return DateFormat('dd/MM/yy').format(dateEndLife);
+  }
 
   int missingDaysEndLife() {
     return dateEndLife.difference(DateTime.now()).inDays;
