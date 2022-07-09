@@ -15,17 +15,35 @@ class HomePage extends StatelessWidget {
             Text('DEAD LINE TIME',
                 style: Theme.of(context).textTheme.headline6),
             const SizedBox(height: 16),
+            const Text('Dias do ano'),
+            const SizedBox(height: 8),
             SizedBox(
               width: 350,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  const Text('Dias do ano =>'),
-                  Text('inicio: ${controler.missingDaysEndYear()}'),
-                  Text('${controler.percentagePassedYear()}%'),
-                  const Text('/'),
-                  Text('fim: ${controler.beginningDaysStartYear()}'),
-                  Text('${controler.percentageTheEndYear()}%'),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('Inicio'),
+                      Text(
+                        '${controler.missingDaysEndYear()}',
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
+                      Text('${controler.percentagePassedYear()}%'),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('Fim'),
+                      Text(
+                        '${controler.beginningDaysStartYear()}',
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
+                      Text('${controler.percentageTheEndYear()}%'),
+                    ],
+                  ),
                 ],
               ),
             ),
