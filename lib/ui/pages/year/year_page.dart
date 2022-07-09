@@ -31,7 +31,7 @@ class YearPage extends StatelessWidget {
                     children: [
                       const Text('Inicio'),
                       Text(
-                        '${controller.missingDaysEndYear()}',
+                        '${controller.beginningDaysStartYear()}',
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
                       Text('${controller.percentagePassedYear()}%'),
@@ -42,7 +42,7 @@ class YearPage extends StatelessWidget {
                     children: [
                       const Text('Fim'),
                       Text(
-                        '${controller.beginningDaysStartYear()}',
+                        '${controller.missingDaysEndYear()}',
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
                       Text('${controller.percentageTheEndYear()}%'),
