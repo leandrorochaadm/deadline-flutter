@@ -1,3 +1,4 @@
+import 'package:deadline/ui/pages/home/home_controler.dart';
 import 'package:deadline/ui/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -13,9 +14,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomePage(),
+          primarySwatch: Colors.blue,
+          brightness: Brightness.dark,
+          textTheme: const TextTheme(
+            headline1: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
+            bodyText2: TextStyle(fontSize: 14),
+          )),
+      home: HomePage(controler: HomeControler()),
     );
   }
 }
