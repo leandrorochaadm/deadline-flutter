@@ -8,15 +8,15 @@ class YearPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Center(
+    return Scaffold(
+      appBar: AppBar(title: const Text('Dias do ano'), centerTitle: true),
+      body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text('DEAD LINE TIME',
                 style: Theme.of(context).textTheme.headline6),
             const SizedBox(height: 16),
-            const Text('Dias do ano'),
             const SizedBox(height: 8),
             SizedBox(
               width: 350,

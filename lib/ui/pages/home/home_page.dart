@@ -7,13 +7,22 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: Center(
-        child: Row(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/year');
-                },
-                child: Text('Ano'))
+              onPressed: () {
+                Navigator.pushNamed(context, '/year');
+              },
+              child: const Text('Ano'),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/life');
+              },
+              child: const Text('Vida'),
+            ),
           ],
         ),
       ),
