@@ -21,37 +21,29 @@ class YearPage extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyText2,
             ),
             const SizedBox(height: 8),
-            Text(
-              'Semana ${controller.beginningWeeksStartYear()} / ${controller.missingWeeksEndYear()}',
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            const SizedBox(height: 8),
             SizedBox(
               width: 350,
-              child: Row(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('Inicio'),
-                      Text(
-                        '${controller.beginningDaysStartYear()}',
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
-                      Text('${controller.percentagePassedYear()}%'),
-                    ],
+                  DisplayWidget(
+                    label: 'Dias do início',
+                    value: controller.beginningDaysStartYear(),
+                    percente: controller.percentagePassedYear(),
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('Fim'),
-                      Text(
-                        '${controller.missingDaysEndYear()}',
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
-                      Text('${controller.percentageTheEndYear()}%'),
-                    ],
+                  DisplayWidget(
+                    label: 'Dias pra o fim',
+                    value: controller.missingDaysEndYear(),
+                    percente: controller.percentageTheEndYear(),
+                  ),
+                  const SizedBox(height: 8),
+                  DisplayWidget(
+                    label: 'Semanas do início',
+                    value: controller.beginningWeeksStartYear(),
+                  ),
+                  DisplayWidget(
+                    label: 'Semanas pra o fim',
+                    value: controller.missingWeeksEndYear(),
                   ),
                 ],
               ),
@@ -59,6 +51,39 @@ class YearPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class DisplayWidget extends StatelessWidget {
+  final int value;
+  final String percente;
+  final String label;
+
+  const DisplayWidget({
+    Key? key,
+    required this.value,
+    this.percente = '',
+    required this.label,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        SizedBox(
+          width: 175,
+          child: Text(label),
+        ),
+        SizedBox(
+          width: 75,
+          child: Text(
+            '$value',
+            style: Theme.of(context).textTheme.bodyText1,
+          ),
+        ),
+        percente != '' ? Text('$percente %') : const SizedBox.shrink(),
+      ],
     );
   }
 }
