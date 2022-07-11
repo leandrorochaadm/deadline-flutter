@@ -28,18 +28,19 @@ class LifeController {
 
   String? validForm(String? value) {
     if (value == null || value.isEmpty) {
+      dateStartLife = DateTime.now();
       return "Data obrigatória";
     }
 
     try {
-      print('value ' + value);
       dateStartLife = DateFormat("dd/MM/yyyy").parseStrict(value, true);
-      print(dateStartLife);
     } catch (_) {
+      dateStartLife = DateTime.now();
       return 'Data inválida';
     }
 
     if (DateTime.now().isBefore(dateStartLife.add(const Duration(days: 1)))) {
+      dateStartLife = DateTime.now();
       return 'Data deve ser menor que hoje';
     }
 

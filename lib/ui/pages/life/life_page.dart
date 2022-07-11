@@ -38,16 +38,13 @@ class _LifePageState extends State<LifePage> {
                           labelText: "Data do seu nascimento",
                         ),
                         validator: widget.controller.validForm,
-                      ),
-                      const SizedBox(height: 8),
-                      ElevatedButton(
-                        onPressed: () {
+                        onChanged: (_) {
                           setState(() {
                             formKey.currentState?.validate();
                           });
                         },
-                        child: const Text('Calculcar'),
                       ),
+                      const SizedBox(height: 8),
                     ],
                   )),
               widget.controller.beginningDaysStartLife() > 0
