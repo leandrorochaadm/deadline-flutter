@@ -5,7 +5,7 @@ class YearController {
   DateTime dateStartYear = DateTime(DateTime.now().year);
 
   String dateToday() {
-    return DateFormat('dd/MM/yy EEEE QQQ').format(DateTime.now());
+    return DateFormat('dd/MM/yy EEEE QQQ').format(DateTime.now().toLocal());
   }
 
   int beginningWeeksStartYear() {
