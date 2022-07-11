@@ -6,7 +6,7 @@ class YearController {
   DateTime dateStartYear = DateTime(DateTime.now().year);
 
   String dateToday() {
-    return DateFormat('dd/MM/yy').format(DateTime.now());
+    return DateFormat('dd/MM/yy ( EEEE )').format(DateTime.now());
   }
 
   int missingDaysEndYear() {
