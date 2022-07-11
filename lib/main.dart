@@ -24,6 +24,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.grey,
           brightness: Brightness.dark,
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              onPrimary: Colors.black54,
+              textStyle: const TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ),
           textTheme: const TextTheme(
             headline1: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
             bodyText1: TextStyle(fontSize: 26),
