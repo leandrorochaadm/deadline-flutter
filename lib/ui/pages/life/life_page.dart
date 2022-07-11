@@ -1,6 +1,5 @@
 import 'package:deadline/ui/pages/life/life_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import 'life_controller.dart';
 
@@ -14,7 +13,6 @@ class LifePage extends StatefulWidget {
 
 class _LifePageState extends State<LifePage> {
   final formKey = GlobalKey<FormState>();
-  int days = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -36,29 +34,7 @@ class _LifePageState extends State<LifePage> {
                           decoration: const InputDecoration(
                             labelText: "Data do seu nascimento",
                           ),
-                          validator: (String? value) {
-                            if (value == null || value.isEmpty) {
-                              days = 0;
-                              return "Data obrigatória";
-                            }
-                            DateTime dateValid;
-
-                            try {
-                              dateValid = DateFormat("dd/MM/yy").parse(value);
-                            } catch (_) {
-                              days = 0;
-                              return 'Data inválida';
-                            }
-
-                            if (DateTime.now().isBefore(dateValid)) {
-                              days = 0;
-                              return 'Data deve ser menor que hoje';
-                            }
-
-                            days = DateTime.now().difference(dateValid).inDays;
-
-                            return null;
-                          },
+                          validator: widget.controller.validForm,
                         ),
                       ),
                       const SizedBox(width: 8),
@@ -72,9 +48,9 @@ class _LifePageState extends State<LifePage> {
                       ),
                     ],
                   )),
-              days > 0
+              widget.controller.days > 0
                   ? Text(
-                      days.toString(),
+                      widget.controller.days.toString(),
                       style: Theme.of(context).textTheme.bodyText2,
                     )
                   : const SizedBox.shrink(),
