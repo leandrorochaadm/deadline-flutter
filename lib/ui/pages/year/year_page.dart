@@ -21,6 +21,11 @@ class YearPage extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyText2,
             ),
             const SizedBox(height: 8),
+            Text(
+              'Semana ${controller.beginningWeeksStartYear()} / ${controller.missingWeeksEndYear()}',
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
+            const SizedBox(height: 8),
             SizedBox(
               width: 350,
               child: Row(

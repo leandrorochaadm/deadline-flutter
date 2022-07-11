@@ -8,6 +8,14 @@ class YearController {
     return DateFormat('dd/MM/yy EEEE QQQ').format(DateTime.now());
   }
 
+  int beginningWeeksStartYear() {
+    return beginningDaysStartYear() ~/ 7;
+  }
+
+  int missingWeeksEndYear() {
+    return (52 - beginningWeeksStartYear());
+  }
+
   int missingDaysEndYear() {
     return dateEndYear.difference(DateTime.now()).inDays;
   }
