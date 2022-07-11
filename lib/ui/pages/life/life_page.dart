@@ -88,50 +88,6 @@ class _LifePageState extends State<LifePage> {
             ],
           ),
         ),
-        /*child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text('DIAS DA VIDA', style: Theme.of(context).textTheme.headline1),
-            const SizedBox(height: 16),
-
-            Text(
-              'Data: ${controller.dateEndLifeStr()}',
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            const SizedBox(height: 8),
-            SizedBox(
-              width: 200,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('Inicio'),
-                      Text(
-                        '${controller.beginningDaysStartLife()}',
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
-                      Text('${controller.percentagePassedLife()}%'),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('Fim'),
-                      Text(
-                        '${controller.missingDaysEndLife()}',
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
-                      Text('${controller.percentageTheEndLife()}%'),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),*/
       ),
     );
   }
