@@ -1,5 +1,6 @@
 import 'package:deadline/ui/pages/life/life_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'life_controller.dart';
 
@@ -30,7 +31,8 @@ class _LifePageState extends State<LifePage> {
                   child: Column(
                     children: [
                       TextFormField(
-                        initialValue: '22/08/93',
+                        initialValue: DateFormat("dd/MM/yyyy")
+                            .format(widget.controller.dateStartLife),
                         keyboardType: TextInputType.datetime,
                         decoration: const InputDecoration(
                           labelText: "Data do seu nascimento",
