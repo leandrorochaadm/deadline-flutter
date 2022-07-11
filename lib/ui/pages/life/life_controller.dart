@@ -27,7 +27,7 @@ class LifeController {
   }
 
   String? validForm(String? value) {
-    if (value == null || value.isEmpty) {
+    if (value == null || value.isEmpty || value.length < 10) {
       dateStartLife = DateTime.now();
       return "Data obrigatória";
     }
