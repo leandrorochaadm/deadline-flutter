@@ -20,24 +20,24 @@ class _LifePageState extends State<LifePage> {
       appBar: AppBar(title: const Text('Dias da vida'), centerTitle: true),
       body: Center(
         child: SizedBox(
-          width: 300,
+          width: 200,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(height: 16),
               Form(
                   key: formKey,
-                  child: Row(
+                  child: Column(
                     children: [
-                      Expanded(
-                        child: TextFormField(
-                          initialValue: '22/08/93',
-                          keyboardType: TextInputType.datetime,
-                          decoration: const InputDecoration(
-                            labelText: "Data do seu nascimento",
-                          ),
-                          validator: widget.controller.validForm,
+                      TextFormField(
+                        initialValue: '22/08/93',
+                        keyboardType: TextInputType.datetime,
+                        decoration: const InputDecoration(
+                          labelText: "Data do seu nascimento",
                         ),
+                        validator: widget.controller.validForm,
                       ),
-                      const SizedBox(width: 8),
+                      const SizedBox(height: 8),
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
@@ -48,10 +48,42 @@ class _LifePageState extends State<LifePage> {
                       ),
                     ],
                   )),
-              widget.controller.days > 0
-                  ? Text(
-                      widget.controller.days.toString(),
-                      style: Theme.of(context).textTheme.bodyText2,
+              widget.controller.beginningDaysStartLife() > 0
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const SizedBox(height: 8),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text('Inicio'),
+                                Text(
+                                  '${widget.controller.beginningDaysStartLife()}',
+                                  style: Theme.of(context).textTheme.bodyText1,
+                                ),
+                                Text(
+                                    '${widget.controller.percentagePassedLife()}%'),
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text('Fim'),
+                                Text(
+                                  '${widget.controller.missingDaysEndLife()}',
+                                  style: Theme.of(context).textTheme.bodyText1,
+                                ),
+                                Text(
+                                    '${widget.controller.percentageTheEndLife()}%'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
                     )
                   : const SizedBox.shrink(),
             ],
