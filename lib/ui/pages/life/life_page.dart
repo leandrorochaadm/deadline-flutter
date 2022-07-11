@@ -1,5 +1,6 @@
 import 'package:deadline/ui/pages/life/life_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'life_controller.dart';
 
@@ -30,22 +31,27 @@ class _LifePageState extends State<LifePage> {
                     children: [
                       Expanded(
                         child: TextFormField(
-                          initialValue: '20220709',
+                          initialValue: '22/08/93',
                           keyboardType: TextInputType.datetime,
                           decoration: const InputDecoration(
-                              labelText: "Data do seu nascimento"),
+                            labelText: "Data do seu nascimento",
+                          ),
                           validator: (String? value) {
                             if (value == null || value.isEmpty) {
+                              days = 0;
                               return "Data obrigatória";
                             }
                             DateTime dateValid;
+
                             try {
-                              dateValid = DateTime.parse(value);
+                              dateValid = DateFormat("dd/MM/yy").parse(value);
                             } catch (_) {
+                              days = 0;
                               return 'Data inválida';
                             }
 
                             if (DateTime.now().isBefore(dateValid)) {
+                              days = 0;
                               return 'Data deve ser menor que hoje';
                             }
 
