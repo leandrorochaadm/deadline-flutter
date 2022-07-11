@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 class QuarterController {
   late final DateTime dateStartQuarter;
   late final DateTime dateEndQuarter;
+  late final int daysQuarter;
 
   init() {
     final year = DateTime.now().year;
@@ -10,18 +11,22 @@ class QuarterController {
       case 'Q1':
         dateStartQuarter = DateTime(year, 1, 1);
         dateEndQuarter = DateTime(year, 3, 30);
+        daysQuarter = dateEndQuarter.difference(dateStartQuarter).inDays;
         break;
       case 'Q2':
         dateStartQuarter = DateTime(year, 4, 1);
         dateEndQuarter = DateTime(year, 6, 30);
+        daysQuarter = dateEndQuarter.difference(dateStartQuarter).inDays;
         break;
       case 'Q3':
         dateStartQuarter = DateTime(year, 7, 1);
         dateEndQuarter = DateTime(year, 9, 30);
+        daysQuarter = dateEndQuarter.difference(dateStartQuarter).inDays;
         break;
       case 'Q4':
         dateStartQuarter = DateTime(year, 10, 1);
         dateEndQuarter = DateTime(year, 12, 31);
+        daysQuarter = dateEndQuarter.difference(dateStartQuarter).inDays;
         break;
     }
   }
@@ -51,10 +56,10 @@ class QuarterController {
   }
 
   String percentagePassedQuarter() {
-    return (beginningDaysStartQuarter() / 365 * 100).toStringAsFixed(2);
+    return (beginningDaysStartQuarter() / daysQuarter * 100).toStringAsFixed(2);
   }
 
   String percentageTheEndQuarter() {
-    return (missingDaysEndQuarter() / 365 * 100).toStringAsFixed(2);
+    return (missingDaysEndQuarter() / daysQuarter * 100).toStringAsFixed(2);
   }
 }
