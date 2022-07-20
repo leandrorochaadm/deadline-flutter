@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 
+import 'register_controller.dart';
+
 class RegisterPage extends StatefulWidget {
-  RegisterPage({Key? key}) : super(key: key);
-  var list = <ItemDate>[ItemDate(date: DateTime.now(), diff: 0)];
+  final RegisterController controller;
+  RegisterPage({Key? key, required this.controller}) : super(key: key);
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  @override
+  void initState() {
+    super.initState();
+    widget.controller.init();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,38 +27,25 @@ class _RegisterPageState extends State<RegisterPage> {
         children: [
           ElevatedButton(
               onPressed: () {
-                final now = DateTime.now();
-                ItemDate previus = widget.list.last;
+                setState(() {
+                  final now = DateTime.now();
 
-                final calcRes = calc(now, previus.date);
-                widget.list.add(calcRes);
-                setState(() {});
+                  DateTime previus = widget.controller.listRegister.last.date;
+                  final calcRes = widget.controller.calc(now, previus);
+                  widget.controller.listRegister.add(calcRes);
+                });
               },
               child: const Text('Add')),
           ListView.builder(
             shrinkWrap: true,
-            itemCount: widget.list.length,
+            itemCount: widget.controller.listRegister.length,
             itemBuilder: (context, index) {
-              return Text(
-                "$index : ${widget.list[index].date} - ${widget.list[index].diff}",
-                style: const TextStyle(color: Colors.white),
-              );
+              final item = widget.controller.listRegister[index];
+              return Text("$index : ${item.date} | ${item.diff}");
             },
           ),
         ],
       ),
     );
   }
-}
-
-class ItemDate {
-  final DateTime date;
-  final int diff;
-
-  ItemDate({required this.date, required this.diff});
-}
-
-ItemDate calc(DateTime now, DateTime previus) {
-  final diff = now.difference(previus).inSeconds;
-  return ItemDate(date: now, diff: diff);
 }
