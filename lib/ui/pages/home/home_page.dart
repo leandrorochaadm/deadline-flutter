@@ -18,6 +18,8 @@ class HomePage extends StatelessWidget {
             const ButtonHomeWidget(label: 'QUARTER', route: '/quarter'),
             const SizedBox(height: 16),
             const ButtonHomeWidget(label: 'VIDA', route: '/life'),
+            const SizedBox(height: 16),
+            const ButtonHomeWidget(label: 'Registro', route: '/register'),
           ],
         ),
       ),
