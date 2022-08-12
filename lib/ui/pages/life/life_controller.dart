@@ -1,7 +1,7 @@
 import 'package:intl/intl.dart';
 
 class LifeController {
-  DateTime dateEndLife = DateTime(2058);
+  DateTime dateEndLife = DateTime(2058, 4, 28);
   DateTime dateStartLife = DateTime(1993, 8, 22);
 
   String dateEndLifeStr() {
@@ -25,6 +25,18 @@ class LifeController {
   String percentageTheEndLife() {
     return (missingDaysEndLife() / daysLife() * 100).toStringAsFixed(3);
   }
+
+  String daysToFormated(int days) {
+    final y = (days / 365.25).floor();
+    final yd = (y * 365.25);
+    final m = ((days - yd) / 30).floor();
+    final md = m * 30;
+    final d = (days - yd - md).floor();
+    return '$y anos \n$m meses \n$d dias';
+  }
+
+  String missingStringEndLife() => daysToFormated(missingDaysEndLife());
+  String beginningStringStartLife() => daysToFormated(beginningDaysStartLife());
 
   String? validForm(String? value) {
     if (value == null || value.isEmpty || value.length < 10) {

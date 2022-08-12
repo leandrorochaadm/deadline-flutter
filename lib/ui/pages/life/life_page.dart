@@ -66,6 +66,11 @@ class _LifePageState extends State<LifePage> {
                                 ),
                                 Text(
                                     '${widget.controller.percentagePassedLife()}%'),
+                                const SizedBox(height: 8),
+                                Text(
+                                  widget.controller.beginningStringStartLife(),
+                                  style: Theme.of(context).textTheme.bodyText2,
+                                ),
                               ],
                             ),
                             Column(
@@ -78,6 +83,11 @@ class _LifePageState extends State<LifePage> {
                                 ),
                                 Text(
                                     '${widget.controller.percentageTheEndLife()}%'),
+                                const SizedBox(height: 8),
+                                Text(
+                                  widget.controller.missingStringEndLife(),
+                                  style: Theme.of(context).textTheme.bodyText2,
+                                ),
                               ],
                             ),
                           ],
